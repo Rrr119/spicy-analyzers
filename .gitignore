@@ -4,3 +4,13 @@ cmake-build-debug/
 .DS_Store
 *.swp
 *.tmp
+
+# Generated Spicy test analyzer artifacts.
+tests/analyzer/*.hlto
+
+# Failure samples produced by local test runs.
+spicy-failures/
+
+# Python caches from the test tooling.
+__pycache__/
+*.pyc

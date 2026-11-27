@@ -1,0 +1,17 @@
+{
+  "root": "/home/dev/feedback/uid43107",
+  "B": "/home/dev/feedback/uid43107",
+  "sha": "38f80b9759b9180cf7b5bc070843cca8cc78379b",
+  "wslDistro": "Ubuntu-26.04",
+  "source": {
+    "owner": "zeek",
+    "repo": "spicy-analyzers",
+    "sha": "38f80b9759b9180cf7b5bc070843cca8cc78379b"
+  },
+  "fork": {
+    "owner": "Rrr119",
+    "repo": "spicy-analyzers",
+    "cloneUrl": "https://github.com/Rrr119/spicy-analyzers.git"
+  },
+  "at": "2026-11-27T05:02:20.010Z"
+}

@@ -66,6 +66,18 @@ output of `zeek -NN Zeek::Spicy`.
 (Note that `disable_file_analyzer()` requires a current development
 version of Zeek to be available.)
 
+## Parse failure tracking
+
+The package additionally loads the `SpicyAnalyzerFailures` module, which makes
+analyzer parse failures observable instead of being dropped silently. It
+classifies each failure (`TRUNCATED`, `CONSTRAINT`, `FORMAT`, `OTHER`),
+maintains per-analyzer/per-category counters, logs them to
+`spicy_analyzer_failures.log`, and can persist the offending bytes under
+`spicy-failures/` for offline reproduction. See
+[`SpicyAnalyzerFailures/README.md`](SpicyAnalyzerFailures/README.md) for the
+configuration options and [`tests/README.md`](tests/README.md) for the
+acceptance tests.
+
 ## License
 
 This package is open source and released under a BSD license. Please see the

@@ -1,0 +1,34 @@
+# Demultiplexing test analyzer used to exercise the failure tracking module.
+# The single-byte "kind" field selects one of three malformed shapes, each
+# producing a distinct Spicy ParseError category:
+#
+#   kind 1 -> truncated input (TRUNCATED)
+#   kind 2 -> literal mismatch   (FORMAT)
+#   kind 3 -> &requires failure  (CONSTRAINT)
+
+module FailDemo;
+
+type Truncated = unit {
+	magic: b"PROBE";
+	length: uint8;
+	payload: bytes &size=self.length;
+};
+
+type BadMagic = unit {
+	magic: b"PROBE";
+};
+
+type Constrained = unit {
+	length: uint8 &requires=(self.length <= 3 : "length too large");
+	payload: bytes &size=self.length;
+};
+
+public type Message = unit {
+	kind: uint8;
+
+	switch ( self.kind ) {
+		1 -> truncated: Truncated;
+		2 -> bad_magic: BadMagic;
+		3 -> constrained: Constrained;
+	};
+};

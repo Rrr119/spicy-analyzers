@@ -33,6 +33,11 @@ jobs:
         run: |
           zeek -NN local
 
+      - name: Run analyzer failure tracking acceptance tests
+        run: |
+          eval $(zkg env)
+          ./tests/run_acceptance.sh
+
       - name: Show logs
         if: always()
         run: |
